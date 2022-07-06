@@ -9,7 +9,7 @@ export default function usePageView() {
     if (!gtag.existsGaId) {
       return
     }
-    const handleRouteChange = (path, { shallow }) => {
+    const handleRouteChange = (path: string, { shallow }: any) => {
       if (!shallow) {
         gtag.pageView(path)
       }

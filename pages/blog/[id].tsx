@@ -1,6 +1,7 @@
+import { GetStaticPropsContext } from 'next'
 import { client } from '../../libs/client'
 import type { Blog } from '../../types/blog'
-import type { Categories, Category } from '../../types/category'
+import type { Category } from '../../types/category'
 import Title from '../../components/title'
 import CategoryCard from '../../components/categoryCard'
 import Date from '../../components/date'
@@ -47,17 +48,17 @@ export default function BlogId(props: Props) {
 
 export const getStaticPaths = async() => {
   const data = await client.get({ endpoint: 'blogs' })
-  const paths = data.contents.map((content) => `/blog/${content.id}`)
+  const paths = data.contents.map((blog: Blog) => `/blog/${blog.id}`)
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context) => {
-  const id = context.params.id
-  const data = await client.get({ endpoint: 'blogs', contentId: id })
+export const getStaticProps = async (context: GetStaticPropsContext<{ id: string }>) => {
+  const id = context.params?.id
+  const blogData = await client.get({ endpoint: 'blogs', contentId: id })
   const categoriesData = await client.get({ endpoint: 'categories' })
   return {
     props: {
-      blog: data,
+      blog: blogData,
       categories: categoriesData.contents,
     }
   }
