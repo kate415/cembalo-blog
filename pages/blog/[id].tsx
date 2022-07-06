@@ -38,7 +38,7 @@ export default function BlogId(props: Props) {
           />
         </article>
       </main>
-      <aside className="basis-1/4">
+      <aside>
         <CategoriesList categories={props.categories} />
         <Profile />
       </aside>
