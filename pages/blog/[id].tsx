@@ -15,8 +15,8 @@ type Props = {
 
 export default function BlogId(props: Props) {
   return (
-    <div className="flex flex-col md:flex-rowgap-10">
-      <main>
+    <div className="flex flex-col md:flex-row gap-10">
+      <main className="basis-3/4">
         <article>
           <div className="mb-5">
             <Date date={props.blog.publishedAt} />
@@ -24,16 +24,20 @@ export default function BlogId(props: Props) {
           <div className="mb-5">
             <Title title={props.blog.title} />
             <Line />
+            {props.blog.category == null
+              ? <CategoryCard category="カテゴリなし"/>
+              : <CategoryCard category={props.blog.category.name}/>}
+            
           </div>
           <div
-            className="prose"
+            className="prose max-w-none"
             dangerouslySetInnerHTML={{
               __html: `${props.blog.content}`
             }}
           />
         </article>
       </main>
-      <aside>
+      <aside className="basis-1/4">
         <CategoriesList categories={props.categories} />
         <Profile />
       </aside>
