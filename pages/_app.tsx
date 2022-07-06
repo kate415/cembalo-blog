@@ -2,8 +2,10 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from './layout'
 import Head from 'next/head'
+import usePageView from '../hooks/usePageView'
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
+  usePageView()
   return (
     <>
       <Head>
@@ -16,5 +18,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     
   )
 }
-
-export default MyApp
