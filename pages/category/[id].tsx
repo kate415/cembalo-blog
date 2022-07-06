@@ -1,3 +1,4 @@
+import { GetStaticPropsContext } from 'next'
 import { client } from '../../libs/client'
 import BlogCards from '../../components/blogCards'
 import CategoriesList from '../../components/categoriesList'
@@ -29,24 +30,24 @@ export default function CategoryId(props: Props) {
 }
 
 export const getStaticPaths = async() => {
-  const data = await client.get({ 
+  const categoriesData = await client.get({ 
     endpoint: 'categories',
   })
-  const paths = data.contents.map((content) => `/category/${content.id}`)
+  const paths = categoriesData.contents.map((category: Category) => `/category/${category.id}`)
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context) => {
-  const id: string = context.params.id
+export const getStaticProps = async (context: GetStaticPropsContext<{id: string}>) => {
+  const id = context.params?.id
   const blogsData = await client.get({ 
     endpoint: 'blogs',
     queries: {filters: `category[equals]${id}`}
   })
   const categoriesData = await client.get({ endpoint: 'categories' })
   var name: string = ''
-  categoriesData.contents.forEach(element => {
-    if (element.id == id) {
-      name = element.name
+  categoriesData.contents.forEach((category: Category) => {
+    if (category.id == id) {
+      name = category.name
     }
   })
   return {
