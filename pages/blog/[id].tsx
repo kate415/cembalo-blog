@@ -2,12 +2,11 @@ import { GetStaticPropsContext } from 'next'
 import { client } from '../../libs/client'
 import type { Blog } from '../../types/blog'
 import type { Category } from '../../types/category'
+import ASide from '../../components/aside'
 import Title from '../../components/title'
 import CategoryCard from '../../components/categoryCard'
 import Date from '../../components/date'
 import Line from '../../components/line'
-import CategoriesList from '../../components/categoriesList'
-import Profile from '../../components/profile'
 
 type Props = {
   blog: Blog,
@@ -28,7 +27,6 @@ export default function BlogId(props: Props) {
             {props.blog.category == null
               ? <CategoryCard category="カテゴリなし"/>
               : <CategoryCard category={props.blog.category.name}/>}
-            
           </div>
           <div
             className="prose max-w-none"
@@ -38,10 +36,7 @@ export default function BlogId(props: Props) {
           />
         </article>
       </main>
-      <aside>
-        <CategoriesList categories={props.categories} />
-        <Profile />
-      </aside>
+      <ASide categories={props.categories} />
     </div>
   )
 }

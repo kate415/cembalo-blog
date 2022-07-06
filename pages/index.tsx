@@ -1,7 +1,6 @@
 import { client } from '../libs/client'
 import BlogCards from '../components/blogCards'
-import Profile from '../components/profile'
-import CategoriesList from '../components/categoriesList'
+import ASide from '../components/aside'
 import type { Blog } from '../types/blog'
 import type { Category } from '../types/category'
 
@@ -16,10 +15,7 @@ export default function Home({ blogs, categories }: Props) {
       <main className="basis-3/4">
         <BlogCards blogs={blogs} />
       </main>
-      <aside>
-        <CategoriesList categories={categories} />
-        <Profile />
-      </aside>
+      <ASide categories={categories} />
     </div>
   )
 }

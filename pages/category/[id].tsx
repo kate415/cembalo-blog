@@ -1,8 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import { client } from '../../libs/client'
+import ASide from '../../components/aside'
 import BlogCards from '../../components/blogCards'
-import CategoriesList from '../../components/categoriesList'
-import Profile from '../../components/profile'
 import type { Category } from '../../types/category'
 import type { Blog } from '../../types/blog'
 
@@ -21,10 +20,7 @@ export default function CategoryId(props: Props) {
           ? <p>記事がありません。</p>
           : <BlogCards blogs={props.blogs} />}
       </main>
-      <aside>
-        <CategoriesList categories={props.categories} />
-        <Profile />
-      </aside>
+      <ASide categories={props.categories} />
     </div>
   )
 }
