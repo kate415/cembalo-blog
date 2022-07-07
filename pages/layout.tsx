@@ -20,14 +20,14 @@ const Layout = ({ children }: Props) => {
     <div className="min-h-screen flex flex-col">
       <header>
         <div className="bg-primary-dark h-2"></div>
-        <nav className="flex flex-rows bg-primary px-20 py-10 text-white fond-bold text-2xl">
+        <nav className="flex flex-rows bg-primary px-10 md:px-20 py-10 text-white fond-bold text-2xl">
           <Link href="/">
             <a onClick={ClickEvent}>ちぇんばろぐ</a>
           </Link>
         </nav>
         <div className="bg-primary-dark h-2"></div>
       </header>
-      <div className="mx-20 my-20 grow">
+      <div className="m-10 md:m-20 grow">
         {children}
       </div>
       <footer className="text-center text-white text-sm">

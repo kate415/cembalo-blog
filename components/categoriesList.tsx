@@ -15,7 +15,7 @@ export default function CategoriesList(props: Props) {
         {props.categories.map((category) => (
           <li key={category.id}>
             <Link href={`/category/${category.id}`}>
-              {category.name}
+              <a className="hover:text-primary-light">{category.name}</a>
             </Link>
           </li>
         ))}
