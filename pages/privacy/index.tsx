@@ -6,22 +6,22 @@ import type { Blog } from '../../types/blog'
 import type { Category } from '../../types/category'
 
 type Props = {
-  privacy: Blog,
-  categories: Array<Category>,
+  privacy: Blog
+  categories: Array<Category>
 }
 
 export default function Privacy(props: Props) {
   return (
-    <div className="flex flex-col md:flex-row gap-10">
-      <main className="basis-3/4">
-        <div className="mb-5">
+    <div className='flex flex-col md:flex-row gap-10'>
+      <main className='basis-3/4'>
+        <div className='mb-5'>
           <Title title={props.privacy.title} />
           <Line />
         </div>
         <div
-          className="prose max-w-none"
+          className='prose max-w-none'
           dangerouslySetInnerHTML={{
-            __html: `${props.privacy.content}`
+            __html: `${props.privacy.content}`,
           }}
         />
       </main>
@@ -31,12 +31,15 @@ export default function Privacy(props: Props) {
 }
 
 export const getStaticProps = async () => {
-  const privacyData = await client.get({ endpoint: 'blogs', contentId: 'skhpi_s4m3' })
+  const privacyData = await client.get({
+    endpoint: 'blogs',
+    contentId: 'skhpi_s4m3',
+  })
   const categoriesData = await client.get({ endpoint: 'categories' })
   return {
     props: {
       privacy: privacyData,
       categories: categoriesData.contents,
-    }
+    },
   }
 }

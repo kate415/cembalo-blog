@@ -13,25 +13,40 @@ export default function BlogCards(props: Props) {
   return (
     <article>
       {props.blogs.map((blog) => (
-        <div key={blog.id} className="mb-10 border-2 p-8 border-primary-pale shadow-md rounded-sm">
+        <div
+          key={blog.id}
+          className='mb-10 border-2 p-8 border-primary-pale shadow-md rounded-sm'
+        >
           <Link href={`/blog/${blog.id}`}>
-            <div className="cursor-pointer flex flex-col md:flex-row gap-8 group">
-              <div className="md:basis-2/5 self-center">
-                {blog.eyecatch == null
-                  ? <Image src="https://images.microcms-assets.io/assets/ee370418a49d49398954bf7354023a10/9a346c64d64a459d82451ae1d4310b79/cemicon.jpg" alt="アイキャッチ画像" className="max-h-48"/>
-                  : <Image src={blog.eyecatch.url} alt="アイキャッチ画像" className="max-h-48"/>}
+            <div className='cursor-pointer flex flex-col md:flex-row gap-8 group'>
+              <div className='md:basis-2/5 self-center'>
+                {blog.eyecatch == null ? (
+                  <Image
+                    src='https://images.microcms-assets.io/assets/ee370418a49d49398954bf7354023a10/9a346c64d64a459d82451ae1d4310b79/cemicon.jpg'
+                    alt='アイキャッチ画像'
+                    className='max-h-48'
+                  />
+                ) : (
+                  <Image
+                    src={blog.eyecatch.url}
+                    alt='アイキャッチ画像'
+                    className='max-h-48'
+                  />
+                )}
               </div>
-              <div className="md:basis-3/5">
-                <div className="">
+              <div className='md:basis-3/5'>
+                <div className=''>
                   <Date date={blog.publishedAt} />
                 </div>
-                <div className="group-hover:text-primary-light">
+                <div className='group-hover:text-primary-light'>
                   <Title title={blog.title} />
-                  </div>
-                <div className="">
-                  {blog.category == null
-                    ? <CategoryCard category="カテゴリなし" />
-                    : <CategoryCard category={blog.category.name} />}
+                </div>
+                <div className=''>
+                  {blog.category == null ? (
+                    <CategoryCard category='カテゴリなし' />
+                  ) : (
+                    <CategoryCard category={blog.category.name} />
+                  )}
                 </div>
               </div>
             </div>

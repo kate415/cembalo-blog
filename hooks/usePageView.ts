@@ -15,7 +15,7 @@ export default function usePageView() {
       }
     }
     router.events.on('routeChangeComplete', handleRouteChange)
-    return() => {
+    return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])

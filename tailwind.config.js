@@ -2,8 +2,8 @@
 module.exports = {
   mode: 'jit',
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
@@ -19,11 +19,11 @@ module.exports = {
           cembaloOther: '#ffccbc', // deeporange-100
           musicOther: '#f0f4c3', // lime-100
           bookLog: '#c8e6c9', // green-100
-          other: '#cfd8dc', // bluegrey-100 
+          other: '#cfd8dc', // bluegrey-100
         },
       },
       fontFamily: {
-        murecho: ["Murecho"],
+        murecho: ['Murecho'],
       },
     },
   },

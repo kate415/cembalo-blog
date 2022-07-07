@@ -9,29 +9,31 @@ import Date from '../../components/date'
 import Line from '../../components/line'
 
 type Props = {
-  blog: Blog,
-  categories: Array<Category>,
+  blog: Blog
+  categories: Array<Category>
 }
 
 export default function BlogId(props: Props) {
   return (
-    <div className="flex flex-col md:flex-row gap-10">
-      <main className="basis-3/4">
+    <div className='flex flex-col md:flex-row gap-10'>
+      <main className='basis-3/4'>
         <article>
-          <div className="mb-5">
+          <div className='mb-5'>
             <Date date={props.blog.publishedAt} />
           </div>
-          <div className="mb-5">
+          <div className='mb-5'>
             <Title title={props.blog.title} />
             <Line />
-            {props.blog.category == null
-              ? <CategoryCard category="カテゴリなし"/>
-              : <CategoryCard category={props.blog.category.name}/>}
+            {props.blog.category == null ? (
+              <CategoryCard category='カテゴリなし' />
+            ) : (
+              <CategoryCard category={props.blog.category.name} />
+            )}
           </div>
           <div
-            className="prose max-w-none"
+            className='prose max-w-none'
             dangerouslySetInnerHTML={{
-              __html: `${props.blog.content}`
+              __html: `${props.blog.content}`,
             }}
           />
         </article>
@@ -41,13 +43,15 @@ export default function BlogId(props: Props) {
   )
 }
 
-export const getStaticPaths = async() => {
+export const getStaticPaths = async () => {
   const data = await client.get({ endpoint: 'blogs' })
   const paths = data.contents.map((blog: Blog) => `/blog/${blog.id}`)
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async (context: GetStaticPropsContext<{ id: string }>) => {
+export const getStaticProps = async (
+  context: GetStaticPropsContext<{ id: string }>
+) => {
   const id = context.params?.id
   const blogData = await client.get({ endpoint: 'blogs', contentId: id })
   const categoriesData = await client.get({ endpoint: 'categories' })
@@ -55,6 +59,6 @@ export const getStaticProps = async (context: GetStaticPropsContext<{ id: string
     props: {
       blog: blogData,
       categories: categoriesData.contents,
-    }
+    },
   }
 }

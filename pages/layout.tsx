@@ -17,33 +17,31 @@ const Layout = ({ children }: Props) => {
     })
   }
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className='min-h-screen flex flex-col'>
       <header>
-        <div className="bg-primary-dark h-2"></div>
-        <nav className="flex flex-rows bg-primary px-10 md:px-20 py-10 text-white fond-bold text-2xl">
-          <Link href="/">
+        <div className='bg-primary-dark h-2'></div>
+        <nav className='flex flex-rows bg-primary px-10 md:px-20 py-10 text-white fond-bold text-2xl'>
+          <Link href='/'>
             <a onClick={ClickEvent}>ちぇんばろぐ</a>
           </Link>
         </nav>
-        <div className="bg-primary-dark h-2"></div>
+        <div className='bg-primary-dark h-2'></div>
       </header>
-      <div className="m-10 md:m-20 grow">
-        {children}
-      </div>
-      <footer className="text-center text-white text-sm">
-        <div className="bg-primary-light h-2"></div>
-        <div className="bg-primary py-8 flex flex-col gap-4">
-          <div className="flex flex-row justify-center gap-4">
+      <div className='m-10 md:m-20 grow'>{children}</div>
+      <footer className='text-center text-white text-sm'>
+        <div className='bg-primary-light h-2'></div>
+        <div className='bg-primary py-8 flex flex-col gap-4'>
+          <div className='flex flex-row justify-center gap-4'>
             <Link href='/privacy'>
-              <a className="hover:underline">プライバシーポリシー</a>
+              <a className='hover:underline'>プライバシーポリシー</a>
             </Link>
             <Link href='/contacts'>
-              <a className="hover:underline">お問い合わせ</a>
+              <a className='hover:underline'>お問い合わせ</a>
             </Link>
           </div>
           <p>&copy;2022 ちぇんばろぐ</p>
         </div>
-        <div className="bg-primary-dark h-2"></div>
+        <div className='bg-primary-dark h-2'></div>
       </footer>
     </div>
   )

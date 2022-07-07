@@ -15,7 +15,7 @@ type Event = {
   value?: string
 }
 
-export const event = ({ action, category, label, value = ''}: Event ) => {
+export const event = ({ action, category, label, value = '' }: Event) => {
   if (!existsGaId) {
     return
   }
