@@ -9,7 +9,7 @@ type Props = {
 export default function CategoriesList(props: Props) {
   return (
     <div className="text-primary-dark border-primary-pale rounded-sm border-2 p-6 h-fit basis-1/4 shadow-md mb-10">
-      <p className="text-xl">カテゴリー</p>
+      <p className="text-xl">記事カテゴリー</p>
       <Line />
       <ul className="list-disc pl-6 leading-9">
         {props.categories.map((category) => (

@@ -21,7 +21,10 @@ export default function Home({ blogs, categories }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const blogsData = await client.get({ endpoint: 'blogs' })
+  const blogsData = await client.get({ 
+    endpoint: 'blogs',
+    queries: { filters: 'category[exists]' },
+  })
   const categoriesData = await client.get({ endpoint: 'categories' })
   return {
     props: {

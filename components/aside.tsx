@@ -12,11 +12,6 @@ export default function ASide(props: Props) {
     <aside>
       <CategoriesList categories={props.categories} />
       <Profile />
-      <div className="mt-4">
-        <Link href='/privacy'>
-          <a>プライバシーポリシー</a>
-        </Link>
-      </div>
     </aside>
   )
 }

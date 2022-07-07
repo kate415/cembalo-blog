@@ -30,9 +30,19 @@ const Layout = ({ children }: Props) => {
       <div className="mx-20 my-20 grow">
         {children}
       </div>
-      <footer className="text-center text-white">
+      <footer className="text-center text-white text-sm">
         <div className="bg-primary-light h-2"></div>
-        <div className="bg-primary py-10">&copy;2022 ちぇんばろぐ</div>
+        <div className="bg-primary py-8 flex flex-col gap-4">
+          <div className="flex flex-row justify-center gap-4">
+            <Link href='/privacy'>
+              <a className="hover:underline">プライバシーポリシー</a>
+            </Link>
+            <Link href='/contacts'>
+              <a className="hover:underline">お問い合わせ</a>
+            </Link>
+          </div>
+          <p>&copy;2022 ちぇんばろぐ</p>
+        </div>
         <div className="bg-primary-dark h-2"></div>
       </footer>
     </div>
