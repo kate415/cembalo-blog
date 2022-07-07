@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import CategoryCard from './categoryCard'
 import Title from './title'
@@ -17,8 +18,8 @@ export default function BlogCards(props: Props) {
             <div className="cursor-pointer flex flex-col md:flex-row gap-8 group">
               <div className="md:basis-2/5 self-center">
                 {blog.eyecatch == null
-                  ? <img src="https://images.microcms-assets.io/assets/ee370418a49d49398954bf7354023a10/9a346c64d64a459d82451ae1d4310b79/cemicon.jpg" className="max-h-48"/>
-                  : <img src={blog.eyecatch.url} className="max-h-48"/>}
+                  ? <Image src="https://images.microcms-assets.io/assets/ee370418a49d49398954bf7354023a10/9a346c64d64a459d82451ae1d4310b79/cemicon.jpg" alt="アイキャッチ画像" className="max-h-48"/>
+                  : <Image src={blog.eyecatch.url} alt="アイキャッチ画像" className="max-h-48"/>}
               </div>
               <div className="md:basis-3/5">
                 <div className="">
