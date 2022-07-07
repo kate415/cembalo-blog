@@ -7,7 +7,10 @@ export default function Profile() {
         <Image
           src='https://images.microcms-assets.io/assets/ee370418a49d49398954bf7354023a10/9a346c64d64a459d82451ae1d4310b79/cemicon.jpg'
           alt='プロフィール画像'
-          className='border-primary-light border-2 rounded-full w-20 h-20'
+          objectFit='contain'
+          width={80}
+          height={80}
+          className='border-primary-light border-2 rounded-full'
         />
         <div className='self-center'>
           <p>著者</p>

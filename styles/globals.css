@@ -1,3 +1,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.imageContainer span {
+  position: static !important;
+}
+
+.imageContainer img {
+  position: static !important;
+  width: 100% !important;
+  max-height: 12rem !important;
+  height: auto !important;
+}
